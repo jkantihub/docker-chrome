@@ -5,7 +5,10 @@ Install Google Chrome in a Docker container
 git clone https://github.com/jkantihub/docker-chrome
 
 # Build the container using following command
+cd docker-chrome
+docker build --no-cache -t=docker-chrome . 
 
+#To run the browser , DISPLAY should have "xhost +"
+docker run -it  -e DISPLAY=$DISPLAY -v=/tmp/.X11-unix:/tmp/.X11-unix docker-chrome google-chrome
 
-#To run the browser
-docker run -it  -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix docker-chrome google-chrome
+# Enjoy Google Chrome in a Docker Container
